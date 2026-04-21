@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>Wenn Demokratie kippt – Materialsammlung</title>
+<style>
+:root {
+  --bg: #f7f6f2;
+  --white: #ffffff;
+  --text: #1a1a1a;
+  --text-light: #555555;
+  --border: #e0ddd6;
+  --accent-re: #c0392b;   /* Rechtsextremismus */
+  --accent-is: #1a6fa8;   /* Islamismus */
+  --accent-li: #c07a00;   /* Linksextremismus */
+  --accent-ra: #2e7d32;   /* Radikalisierung */
+  --accent-st: #5b2d8e;   /* Streitbare Demokratie */
+  --accent-re-light: #fdf2f1;
+  --accent-is-light: #f0f6fc;
+  --accent-li-light: #fdf8ee;
+  --accent-ra-light: #f1f8f2;
+  --accent-st-light: #f5f0fb;
+  --radius: 10px;
+  --shadow: 0 2px 12px rgba(0,0,0,0.07);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, 'Helvetica Neue', Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
+  padding: 0 0 60px;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* ── HEADER ── */
+.site-header {
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  padding: 20px 24px 16px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.site-header h1 {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.3px;
+}
+
+.site-header p {
+  font-size: 13px;
+  color: var(--text-light);
+  margin-top: 2px;
+}
+
+/* ── NAV TABS ── */
+.nav-tabs {
+  display: flex;
+  gap: 6px;
+  padding: 14px 24px 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+}
+.nav-tabs::-webkit-scrollbar { display: none; }
+
+.tab-btn {
+  flex-shrink: 0;
+  padding: 8px 14px 10px;
+  border: none;
+  background: transparent;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-light);
+  cursor: pointer;
+  border-bottom: 3px solid transparent;
+  margin-bottom: -1px;
+  transition: color 0.2s, border-color 0.2s;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.tab-btn.active { color: var(--text); }
+.tab-btn[data-group="A1"].active,
+.tab-btn[data-group="A2"].active { border-color: var(--accent-re); color: var(--accent-re); }
+.tab-btn[data-group="B"].active  { border-color: var(--accent-is); color: var(--accent-is); }
+.tab-btn[data-group="C"].active  { border-color: var(--accent-li); color: var(--accent-li); }
+.tab-btn[data-group="D"].active  { border-color: var(--accent-ra); color: var(--accent-ra); }
+.tab-btn[data-group="E"].active  { border-color: var(--accent-st); color: var(--accent-st); }
+
+/* ── CONTENT PANELS ── */
+.panel { display: none; padding: 24px; max-width: 780px; margin: 0 auto; }
+.panel.active { display: block; }
+
+/* ── GROUP BADGE ── */
+.group-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  margin-bottom: 16px;
+}
+
+/* ── SECTION TITLE ── */
+.section-title {
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: -0.5px;
+  margin-bottom: 6px;
+}
+
+.section-sub {
+  font-size: 14px;
+  color: var(--text-light);
+  margin-bottom: 24px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border);
+}
+
+/* ── CARDS ── */
+.card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  margin-bottom: 16px;
+  box-shadow: var(--shadow);
+}
+
+.card-title {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.card-body {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--text);
+}
+
+.card-body p + p { margin-top: 10px; }
+
+/* ── HIGHLIGHT BOX ── */
+.highlight {
+  border-radius: 8px;
+  padding: 14px 16px;
+  margin: 12px 0;
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+/* ── STAT ROW ── */
+.stat-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin: 14px 0;
+}
+
+.stat-box {
+  background: var(--bg);
+  border-radius: 8px;
+  padding: 14px 10px;
+  text-align: center;
+  border: 1px solid var(--border);
+}
+
+.stat-number {
+  font-size: 22px;
+  font-weight: 800;
+  display: block;
+  line-height: 1.1;
+  margin-bottom: 4px;
+}
+
+.stat-label {
+  font-size: 11px;
+  color: var(--text-light);
+  line-height: 1.4;
+}
+
+/* ── TASKS ── */
+.tasks { margin-top: 8px; }
+
+.task {
+  display: flex;
+  gap: 14px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+}
+.task:last-child { border-bottom: none; }
+
+.task-num {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 800;
+  color: white;
+  margin-top: 1px;
+}
+
+.task-content { flex: 1; }
+
+.task-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  margin-bottom: 4px;
+}
+
+.task-text {
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.task-hint {
+  font-size: 13px;
+  color: var(--text-light);
+  margin-top: 6px;
+  font-style: italic;
+}
+
+/* ── TIMELINE ── */
+.timeline { margin: 12px 0; }
+.timeline-item {
+  display: flex;
+  gap: 14px;
+  padding: 8px 0;
+}
+.timeline-year {
+  flex-shrink: 0;
+  font-size: 12px;
+  font-weight: 700;
+  width: 42px;
+  padding-top: 2px;
+  color: var(--text-light);
+}
+.timeline-text { font-size: 14px; line-height: 1.5; }
+
+/* ── DIAGRAM ── */
+.diagram-wrap {
+  margin: 14px 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.bar-chart { width: 100%; }
+.bar-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.bar-label { font-size: 12px; width: 100px; flex-shrink: 0; color: var(--text-light); }
+.bar-outer { flex: 1; background: var(--bg); border-radius: 4px; height: 28px; overflow: hidden; border: 1px solid var(--border); }
+.bar-inner { height: 100%; border-radius: 3px; display: flex; align-items: center; padding-left: 10px; }
+.bar-value { font-size: 12px; font-weight: 700; color: white; }
+
+/* ── STUFEN-MODELL ── */
+.stufen { display: flex; flex-direction: column; gap: 0; margin: 12px 0; }
+.stufe {
+  display: flex;
+  gap: 14px;
+  padding: 14px 16px;
+  border-radius: 8px;
+  margin-bottom: 4px;
+  align-items: flex-start;
+}
+.stufe-num {
+  flex-shrink: 0;
+  font-size: 18px;
+  font-weight: 900;
+  width: 32px;
+  opacity: 0.7;
+}
+.stufe-content { flex: 1; }
+.stufe-title { font-size: 14px; font-weight: 700; margin-bottom: 3px; }
+.stufe-text { font-size: 14px; line-height: 1.55; }
+
+/* ── INSTRUMENTE ── */
+.instrument {
+  display: flex;
+  gap: 12px;
+  padding: 12px 14px;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  align-items: flex-start;
+  background: var(--bg);
+  border: 1px solid var(--border);
+}
+.instrument-art { font-size: 12px; font-weight: 700; flex-shrink: 0; width: 80px; padding-top: 1px; }
+.instrument-text { font-size: 14px; line-height: 1.55; }
+
+/* ── QUOTE ── */
+.quote {
+  border-left: 4px solid var(--border);
+  padding: 12px 16px;
+  margin: 12px 0;
+  font-size: 15px;
+  font-style: italic;
+  color: var(--text-light);
+  background: var(--bg);
+  border-radius: 0 8px 8px 0;
+}
+
+/* ── PLAKAT HINWEIS ── */
+.plakat-box {
+  border-radius: var(--radius);
+  padding: 18px;
+  margin-bottom: 16px;
+  border: 2px dashed;
+}
+.plakat-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: currentColor;
+  border: 1px solid currentColor;
+  border-radius: 6px;
+  overflow: hidden;
+  margin-top: 12px;
+  opacity: 0.85;
+}
+.plakat-cell {
+  background: white;
+  padding: 10px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text);
+  opacity: 1;
+}
+.plakat-cell span { display: block; font-size: 11px; font-weight: 400; color: var(--text-light); margin-top: 2px; }
+
+/* ── FOOTER INFO ── */
+.footer-info {
+  font-size: 12px;
+  color: var(--text-light);
+  text-align: center;
+  margin-top: 32px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+
+/* ── ACCORDION ── */
+.accordion-btn {
+  width: 100%;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 14px 16px;
+  text-align: left;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  -webkit-tap-highlight-color: transparent;
+}
+.accordion-body {
+  display: none;
+  padding: 0 4px 12px;
+}
+.accordion-body.open { display: block; }
+
+/* ── TOUCH-FRIENDLY ── */
+.tab-btn, .accordion-btn { min-height: 44px; }
+
+@media (max-width: 600px) {
+  .stat-row { grid-template-columns: 1fr 1fr; }
+  .plakat-grid { grid-template-columns: 1fr; }
+  .section-title { font-size: 20px; }
+  .panel { padding: 16px; }
+}
+</style>
+</head>
+<body>
+
+<div class="site-header">
+  <h1>Wenn Demokratie kippt</h1>
+  <p>Extremismus und Radikalisierung · SoWi EF · Materialsammlung</p>
+</div>
+
+<div class="nav-tabs" id="nav-tabs">
+  <button class="tab-btn active" data-group="A1" onclick="showPanel('A1',this)">A · Rechtsextremismus</button>
+  <button class="tab-btn" data-group="B" onclick="showPanel('B',this)">B · Islamismus</button>
+  <button class="tab-btn" data-group="C" onclick="showPanel('C',this)">C · Linksextremismus</button>
+  <button class="tab-btn" data-group="D" onclick="showPanel('D',this)">D · Radikalisierung</button>
+  <button class="tab-btn" data-group="E" onclick="showPanel('E',this)">E · Streitbare Demokratie</button>
+</div>
+
+<!-- ══════════════════════════════════════════
+     PANEL A – RECHTSEXTREMISMUS
+══════════════════════════════════════════ -->
+<div class="panel active" id="panel-A1">
+
+  <div class="group-badge" style="background:#fdf2f1;color:var(--accent-re);border:1px solid #f5c0bb;">
+    🔴 Gruppe A · Rechtsextremismus
+  </div>
+
+  <div class="section-title">Rechtsextremismus</div>
+  <div class="section-sub">Merkmale, Erscheinungsformen und der NSU als Fallbeispiel</div>
+
+  <!-- Stundenfrage -->
+  <div class="highlight" style="background:#fdf2f1;border-left:4px solid var(--accent-re);">
+    <strong>Stundenfrage:</strong> Was bringt Menschen dazu, die Demokratie zu hassen – und was kann der Staat dagegen tun?
+  </div>
+
+  <!-- Fachtext -->
+  <div class="card">
+    <div class="card-title" style="color:var(--accent-re);">📖 Fachtext</div>
+    <div class="card-body">
+      <p>Rechtsextremismus bezeichnet politische Einstellungen und Handlungen, die auf der <strong>Ungleichwertigkeit von Menschen</strong> basieren. Wer rechtsextrem denkt, glaubt: Nicht alle Menschen haben dieselben Rechte – Herkunft, Ethnie oder „Volkszugehörigkeit" entscheiden darüber.</p>
+      <p>Zentrale Merkmale sind: Nationalismus und Volksgemeinschaftsideologie, Rassismus, Antisemitismus, die Ablehnung parlamentarischer Demokratie sowie die Verharmlosung des Nationalsozialismus.</p>
+      <p>Rechtsextremismus ist in Deutschland die <strong>gefährlichste Extremismusform</strong> gemessen an der Zahl rechtsmotivierter Gewalttaten. Rechtsextreme Netzwerke operieren zunehmend im Netz und über verschlüsselte Messenger.</p>
+    </div>
+  </div>
+
+  <!-- Zahlen -->
+  <div class="card">
+    <div class="card-title" style="color:var(--accent-re);">📊 Zahlen & Fakten (Verfassungsschutzbericht 2023)</div>
+    <div class="stat-row">
+      <div class="stat-box">
+        <span class="stat-number" style="color:var(--accent-re);">38.800</span>
+        <span class="stat-label">Rechtsextremisten gesamt</span>
+      </div>
+      <div class="stat-box">
+        <span class="stat-number" style="color:var(--accent-re);">14.000</span>
+        <span class="stat-label">davon gewaltorientiert</span>
+      </div>
+      <div class="stat-box">
+        <span class="stat-number" style="color:var(--accent-re);">+4%</span>
+        <span class="stat-label">Anstieg gegenüber Vorjahr</span>
+      </div>
+    </div>
+    <!-- Balkendiagramm -->
+    <div class="diagram-wrap">
+      <div class="bar-chart">
+        <div class="bar-row">
+          <div class="bar-label">2019</div>
+          <div class="bar-outer"><div class="bar-inner" style="width:78%;background:var(--accent-re);"><span class="bar-value">32.000</span></div></div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">2020</div>
+          <div class="bar-outer"><div class="bar-inner" style="width:82%;background:var(--accent-re);"><span class="bar-value">33.300</span></div></div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">2021</div>
+          <div class="bar-outer"><div class="bar-inner" style="width:85%;background:var(--accent-re);"><span class="bar-value">33.900</span></div></div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">2022</div>
+          <div class="bar-outer"><div class="bar-inner" style="width:91%;background:var(--accent-re);"><span class="bar-value">37.000</span></div></div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">2023</div>
+          <div class="bar-outer"><div class="bar-inner" style="width:100%;background:var(--accent-re);"><span class="bar-value">38.800</span></div></div>
+        </div>
+      </div>
+      <p style="font-size:12px;color:var(--text-light);margin-top:8px;">Personenpotenzial Rechtsextremismus in Deutschland · Quelle: BfV 2023</p>
+    </div>
+  </div>
+
+  <!-- NSU -->
+  <div class="card">
+    <div class="card-title" style="color:var(--accent-re);">🔍 Fallbeispiel: Der NSU</div>
+    <div class="card-body">
+      <p>Der <strong>Nationalsozialistische Untergrund (NSU)</strong> mordete zwischen 2000 und 2011 unerkannt. 10 Menschen wurden getötet – 9 davon wegen ihrer Herkunft. Die Behörden suchten die Täter jahrelang im Umfeld der Opfer.</p>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-year">2000</div>
+        <div class="timeline-text">Beginn der Mordserie – erster Anschlag in Nürnberg</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">2006</div>
+        <div class="timeline-text">4. April: Ermordung von Mehmet Kubaşık in Dortmund – am Tag der WM-Auslosung. Polizei ermittelt im türkischen Milieu.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">2011</div>
+        <div class="timeline-text">NSU fliegt auf – nach einem Bankraub. Zschäpe verbrennt die Wohnung. Das Ausmaß des Terrors wird sichtbar.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">2019</div>
+        <div class="timeline-text">Anschlag in Halle: Rechtsterrorist versucht, eine Synagoge zu stürmen – 2 Tote.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">2020</div>
+        <div class="timeline-text">Anschlag in Hanau: 9 Menschen mit Migrationsgeschichte ermordet.</div>
+      </div>
+    </div>
+    <div class="quote">„Die Bundesrepublik hat versagt. Sie hat die Opfer allein gelassen." — Gamze Kubaşık, Tochter eines NSU-Opfers</div>
+  </div>
+
+  <!-- Aufgaben -->
+  <div class="card">
+    <div class="card-title" style="color:var(--accent-re);">✏️ Eure Aufgaben</div>
+    <div class="tasks">
+      <div class="task">
+        <div class="task-num" style="background:var(--accent-re);">1</div>
+        <div class="task-content">
+          <div class="task-label" style="color:var(--accent-re);">Erschließen</div>
+          <div class="task-text">Benennt die fünf Kernmerkmale des Rechtsextremismus. Erklärt: Warum ist jedes Merkmal eine direkte Ablehnung des Grundgesetzes?</div>
+        </div>
+      </div>
+      <div class="task">
+        <div class="task-num" style="background:var(--accent-re);">2</div>
+        <div class="task-content">
+          <div class="task-label" style="color:var(--accent-re);">Analysieren</div>
+          <div class="task-text">Der NSU mordete zehn Jahre unerkannt. Welche Rolle spielte die Fehleinschätzung der Behörden? Was sagt das über institutionelle Schwächen aus?</div>
+        </div>
+      </div>
+      <div class="task">
+        <div class="task-num" style="background:var(--accent-re);">3</div>
+        <div class="task-content">
+          <div class="task-label" style="color:var(--accent-re);">Urteilen – Effizienz & Legitimität</div>
+          <div class="task-text">„Der Staat hat beim NSU versagt." Bewertet: War das ein Problem der Effizienz, der Legitimität – oder beides?</div>
+          <div class="task-hint">Effizienz = Hat der Staat wirksam gehandelt? · Legitimität = Hat er die richtigen Verfahren eingehalten?</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Plakat -->
+  <div class="plakat-box" style="border-color:var(--accent-re);background:var(--accent-re-light);">
+    <div style="font-size:13px;font-weight:700;color:var(--accent-re);margin-bottom:6px;">🖊 Euer Plakat – vier Pflichtfelder</div>
+    <div style="font-size:13px;color:var(--text-light);margin-bottom:10px;">Gestaltet das Plakat frei – aber alle vier Felder müssen ausgefüllt sein. Es hängt nachher im Raum!</div>
+    <div class="plakat-grid" style="color:var(--accent-re);">
+      <div class="plakat-cell">Was ist es?<span>Definition in eigenen Worten</span></div>
+      <div class="plakat-cell">Merkmale & Beispiele<span>inkl. NSU / Halle / Hanau</span></div>
+      <div class="plakat-cell">Warum gefährlich?<span>Bezug zur fdGO + Zahlen</span></div>
+      <div class="plakat-cell">Unser Urteil<span>Effizienz vs. Legitimität</span></div>
+    </div>
+  </div>
+
+  <div class="footer-info">SoWi EF · Quellen: Verfassungsschutzbericht 2023 · BpB · Bundestag</div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     PANEL B – ISLAMISMUS
+══════════════════════════════════════════ -->
+<div class="panel" id="panel-B">
+  <div class="group-badge" style="background:var(--accent-is-light);color:var(--accent-is);border:1px solid #b8d8f0;">
+    🔵 Gruppe B · Islamistischer Extremismus
+  </div>
+  <div class="section-title">Islamistischer Extremismus</div>
+  <div class="section-sub">Erscheinungsformen, Abgrenzung zum Islam und Gefährdung der Demokratie</div>
+
+  <div class="highlight" style="background:var(--accent-is-light);border-left:4px solid var(--accent-is);">
+    <strong>Wichtig:</strong> Islamismus ≠ Islam. Die große Mehrheit der Muslime weltweit und in Deutschland lehnt Extremismus ab.
+  </div>
+
+  <div class="card">
+    <div class="card-title" style="color:var(--accent-is);">📖 Fachtext</div>
+    <div class="card-body">
+      <p>Islamistischer Extremismus bezeichnet Strömungen, die eine <strong>religiös begründete politische Ordnung</strong> anstreben, die Demokratie und Menschenrechte ablehnen. Das Ziel: eine Gesellschafts- und Staatsordnung allein auf Basis ihrer Interpretation des Islam.</p>
+      <p>Drei Hauptströmungen:</p>
+      <p><strong>Salafismus:</strong> Streng-puristische Auslegung des Islam. Ablehnung der westlichen Gesellschaft, aber nicht zwingend gewaltsam.</p>
+      <p><strong>Dschihadismus:</strong> Religiöse Rechtfertigung von Gewalt als Mittel der Politik. „Heiliger Krieg" als Pflicht.</p>
+      <p><strong>Politischer Islamismus:</strong> Ziel: Errichtung eines islamischen Staates. Demokratie wird abgelehnt, weil nur Gott Gesetze geben darf.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title" style="color:var(--accent-is);">📊 Zahlen & Fakten (Verfassungsschutzbericht 2023)</div>
+    <div class="stat-row">
+      <div class="stat-box">
+        <span class="stat-number" style="color:var(--accent-is);">27.200</span>
+        <span class="stat-label">Islamisten gesamt in D</span>
+      </div>
+      <div class="stat-box">
+        <span class="stat-number" style="color:var(--accent-is);">1.100</span>
+        <span class="stat-label">IS-Ausreisen aus D (seit 2012)</span>
+      </div>
+      <div class="stat-box">
+        <span class="stat-number" style="color:var(--accent-is);">2016</span>
+        <span class="stat-label">Anschlag Berlin Weihnachtsmarkt: 12 Tote</span>
+      </div>
+    </div>
+    <div class="diagram-wrap">
+      <div class="bar-chart">
+        <div class="bar-row">
+          <div class="bar-label">Salafisten</div>
+          <div class="bar-outer"><div class="bar-inner" style="width:80%;background:var(--accent-is);"><span class="bar-value">~11.000</span></div></div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">Hamas/Hisbollah</div>
+          <div class="bar-outer"><div class="bar-inner" style="width:55%;background:var(--accent-is);"><span class="bar-value">~7.000</span></div></div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">Islamismus ges.</div>
+          <div class="bar-outer"><div class="bar-inner" style="width:100%;background:var(--accent-is);"><span class="bar-value">27.200</span></div></div>
+        </div>
+      </div>
+      <p style="font-size:12px;color:var(--text-light);margin-top:8px;">Islamistisches Personenpotenzial · Quelle: BfV 2023 (gerundete Werte)</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title" style="color:var(--accent-is);">✏️ Eure Aufgaben</div>
+    <div class="tasks">
+      <div class="task">
+        <div class="task-num" style="background:var(--accent-is);">1</div>
+        <div class="task-content">
+          <div class="task-label" style="color:var(--accent-is);">Erschließen</div>
+          <div class="task-text">Erklärt den Unterschied zwischen Islam und Islamismus. Warum ist diese Unterscheidung politisch und gesellschaftlich so wichtig?</div>
+        </div>
+      </div>
+      <div class="task">
+        <div class="task-num" style="background:var(--accent-is);">2</div>
+        <div class="task-content">
+          <div class="task-label" style="color:var(--accent-is);">Analysieren</div>
+          <div class="task-text">Beschreibt die drei Erscheinungsformen. Wo liegen die Unterschiede in Zielen und Mitteln – und was haben alle drei gemeinsam?</div>
+        </div>
+      </div>
+      <div class="task">
+        <div class="task-num" style="background:var(--accent-is);">3</div>
+        <div class="task-content">
+          <div class="task-label" style="color:var(--accent-is);">Urteilen – Effizienz & Legitimität</div>
+          <div class="task-text">„Islamistischer Extremismus ist gefährlicher als Rechtsextremismus." Bewertet diese These sachlich – auf Basis der Zahlen, nicht auf Basis von Gefühlen.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="plakat-box" style="border-color:var(--accent-is);background:var(--accent-is-light);">
+    <div style="font-size:13px;font-weight:700;color:var(--accent-is);margin-bottom:6px;">🖊 Euer Plakat – vier Pflichtfelder</div>
+    <div class="plakat-grid" style="color:var(--accent-is);">
+      <div class="plakat-cell">Was ist es?<span>Islam vs. Islamismus</span></div>
+      <div class="plakat-cell">Drei Strömungen<span>Salafismus · Djihad · pol. Islamismus</span></div>
+      <div class="plakat-cell">Warum gefährlich?<span>Bezug zur fdGO + Zahlen</span></div>
+      <div class="plakat-cell">Unser Urteil<span>Effizienz vs. Legitimität</span></div>
+    </div>
+  </div>
+  <div class="footer-info">SoWi EF · Quellen: Verfassungsschutzbericht 2023 · BpB · bundestag.de</div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     PANEL C – LINKSEXTREMISMUS
+══════════════════════════════════════════ -->
+<div class="panel" id="panel-C">
+  <div class="group-badge" style="background:var(--accent-li-light);color:var(--accent-li);border:1px solid #e8d090;">
+    🟡 Gruppe C · Linksextremismus
+  </div>
+  <div class="section-title">Linksextremismus</div>
+  <div class="section-sub">Ideologien, Erscheinungsformen und Abgrenzung zur demokratischen Linken</div>
+
+  <div class="highlight" style="background:var(--accent-li-light);border-left:4px solid var(--accent-li);">
+    <strong>Wichtig:</strong> Linksextremismus ≠ linke Politik. SPD, Grüne oder Linkspartei agieren innerhalb der Demokratie – Linksextremismus lehnt sie ab.
+  </div>
+
+  <div class="card">
+    <div class="card-title" style="color:var(--accent-li);">📖 Fachtext</div>
+    <div class="card-body">
+      <p>Linksextremismus bezeichnet politische Einstellungen und Handlungen, die das bestehende staatliche System <strong>grundlegend überwinden</strong> wollen – nicht durch demokratische Reform, sondern durch Revolution oder die Abschaffung des Staates selbst.</p>
+      <p><strong>Anarchismus:</strong> Ablehnung jeglicher staatlicher Herrschaft. Ziel: eine herrschaftsfreie Gesellschaft ohne Gesetze, Polizei und Regierung.</p>
+      <p><strong>Kommunismus/Marxismus-Leninismus:</strong> Überwindung des Kapitalismus durch revolutionären Klassenkampf. Die parlamentarische Demokratie gilt als Instrument der herrschenden Klasse.</p>
+      <p>Die bedeutendste Strömung in Deutschland ist die <strong>Autonome Bewegung</strong> – dezentral organisiert, betrachtet politische Gewalt als legitimes Mittel des Widerstands.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title" style="color:var(--accent-li);">📊 Zahlen & Fakten (Verfassungsschutzbericht 2023)</div>
+    <div class="stat-row">
+      <div class="stat-box">
+        <span class="stat-number" style="color:var(--accent-li);">36.500</span>
+        <span class="stat-label">Linksextremisten gesamt</span>
+      </div>
+      <div class="stat-box">
+        <span class="stat-number" style="color:var(--accent-li);">10.000</span>
+        <span class="stat-label">davon gewaltorientiert</span>
+      </div>
+      <div class="stat-box">
+        <span class="stat-number" style="color:var(--accent-li);">2017</span>
+        <span class="stat-label">G20-Hamburg: 476 verletzte Polizisten</span>
+      </div>
+    </div>
+    <div class="diagram-wrap">
+      <div class="bar-chart">
+        <div class="bar-row">
+          <div class="bar-label">2019</div>
+          <div class="bar-outer"><div class="bar-inner" style="width:75%;background:var(--accent-li);"><span class="bar-value">33.500</span></div></div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">2021</div>
+          <div class="bar-outer"><div class="bar-inner" style="width:82%;background:var(--accent-li);"><span class="bar-value">34.700</span></div></div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">2023</div>
+          <div class="bar-outer"><div class="bar-inner" style="width:100%;background:var(--accent-li);"><span class="bar-value">36.500</span></div></div>
+        </div>
+      </div>
+      <p style="font-size:12px;color:var(--text-light);margin-top:8px;">Personenpotenzial Linksextremismus · Quelle: BfV 2023</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title" style="color:var(--accent-li);">✏️ Eure Aufgaben</div>
+    <div class="tasks">
+      <div class="task">
+        <div class="task-num" style="background:var(--accent-li);">1</div>
+        <div class="task-content">
+          <div class="task-label" style="color:var(--accent-li);">Erschließen</div>
+          <div class="task-text">Was unterscheidet Linksextremismus von demokratischer linker Politik? Erklärt die zwei Hauptströmungen – was fordern sie, was lehnen sie ab?</div>
+        </div>
+      </div>
+      <div class="task">
+        <div class="task-num" style="background:var(--accent-li);">2</div>
+        <div class="task-content">
+          <div class="task-label" style="color:var(--accent-li);">Analysieren</div>
+          <div class="task-text">Linksextremisten begründen Gewalt oft damit, dass sie sich gegen Rechtsextremismus oder staatliche Unterdrückung richtet. Analysiert dieses Argument: Ist politische Gewalt jemals demokratisch zu rechtfertigen?</div>
+        </div>
+      </div>
+      <div class="task">
+        <div class="task-num" style="background:var(--accent-li);">3</div>
+        <div class="task-content">
+          <div class="task-label" style="color:var(--accent-li);">Urteilen – Effizienz & Legitimität</div>
+          <div class="task-text">„Linksextremismus ist weniger gefährlich als Rechtsextremismus, weil er sich nicht gegen Minderheiten richtet." Bewertet diese These sachlich.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="plakat-box" style="border-color:var(--accent-li);background:var(--accent-li-light);">
+    <div style="font-size:13px;font-weight:700;color:var(--accent-li);margin-bottom:6px;">🖊 Euer Plakat – vier Pflichtfelder</div>
+    <div class="plakat-grid" style="color:var(--accent-li);">
+      <div class="plakat-cell">Was ist es?<span>Abgrenzung zur demokratischen Linken</span></div>
+      <div class="plakat-cell">Strömungen & Beispiele<span>Anarchismus · Kommunismus · Autonome</span></div>
+      <div class="plakat-cell">Warum gefährlich?<span>Bezug zur fdGO + Zahlen</span></div>
+      <div class="plakat-cell">Unser Urteil<span>Vergleich mit anderen Extremismusformen</span></div>
+    </div>
+  </div>
+  <div class="footer-info">SoWi EF · Quellen: Verfassungsschutzbericht 2023 · BpB · bundestag.de</div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     PANEL D – RADIKALISIERUNG
+══════════════════════════════════════════ -->
+<div class="panel" id="panel-D">
+  <div class="group-badge" style="background:var(--accent-ra-light);color:var(--accent-ra);border:1px solid #a8d4aa;">
+    🟢 Gruppe D · Radikalisierung
+  </div>
+  <div class="section-title">Wie funktioniert Radikalisierung?</div>
+  <div class="section-sub">Das Stufenmodell, Push- und Pull-Faktoren, Rolle von Social Media</div>
+
+  <div class="card">
+    <div class="card-title" style="color:var(--accent-ra);">📖 Das Stufenmodell der Radikalisierung</div>
+    <div class="stufen">
+      <div class="stufe" style="background:var(--accent-ra-light);">
+        <div class="stufe-num" style="color:var(--accent-ra);">1</div>
+        <div class="stufe-content">
+          <div class="stufe-title">Kognitive Öffnung</div>
+          <div class="stufe-text">Persönliche Krise, Identitätsunsicherheit, Diskriminierungserfahrungen schaffen Empfänglichkeit für einfache Weltbilder. Man sucht Erklärungen für das eigene Leid.</div>
+        </div>
+      </div>
+      <div class="stufe" style="background:#e8f4e8;">
+        <div class="stufe-num" style="color:var(--accent-ra);">2</div>
+        <div class="stufe-content">
+          <div class="stufe-title">Ideologische Suche</div>
+          <div class="stufe-text">Suche nach Sinn, Zugehörigkeit und klaren Antworten. Extremistische Gruppen bieten beides: ein Weltbild, das alles erklärt – und eine Gemeinschaft.</div>
+        </div>
+      </div>
+      <div class="stufe" style="background:var(--accent-ra-light);">
+        <div class="stufe-num" style="color:var(--accent-ra);">3</div>
+        <div class="stufe-content">
+          <div class="stufe-title">Rahmung</div>
+          <div class="stufe-text">Die Gruppe vermittelt ein klares Wir/Sie-Denken mit Feindbildern und Sendungsbewusstsein. „Wir kämpfen für das Gute – die anderen sind das Böse."</div>
+        </div>
+      </div>
+      <div class="stufe" style="background:#e8f4e8;">
+        <div class="stufe-num" style="color:var(--accent-ra);">4</div>
+        <div class="stufe-content">
+          <div class="stufe-title">Sozialisation</div>
+          <div class="stufe-text">Eintritt in die Gruppe, Abschottung vom bisherigen Umfeld, Normalisierung von Gewalt. Das frühere Leben wird als falsch wahrgenommen.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title" style="color:var(--accent-ra);">↔️ Push- und Pull-Faktoren</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:8px;">
+      <div style="background:#fff5f5;border:1px solid #fcc;border-radius:8px;padding:14px;">
+        <div style="font-size:12px;font-weight:700;color:#c0392b;margin-bottom:8px;">PUSH – treiben heraus</div>
+        <div style="font-size:14px;line-height:1.6;">Ausgrenzung · Diskriminierung · Perspektivlosigkeit · Identitätskrise · Erfahrung von Ungerechtigkeit</div>
+      </div>
+      <div style="background:var(--accent-ra-light);border:1px solid #a8d4aa;border-radius:8px;padding:14px;">
+        <div style="font-size:12px;font-weight:700;color:var(--accent-ra);margin-bottom:8px;">PULL – ziehen hinein</div>
+        <div style="font-size:14px;line-height:1.6;">Zugehörigkeit · Abenteuer · klare Feindbilder · Bedeutsamkeitsgefühl · ideologische Gewissheit</div>
+      </div>
+    </div>
+    <div class="highlight" style="background:#fff8e8;border-left:4px solid #e6a817;margin-top:12px;">
+      <strong>Social Media & Algorithmen:</strong> TikTok, Telegram und YouTube beschleunigen Radikalisierung erheblich. Jugendliche können innerhalb weniger Wochen in extremistische Echokammern gezogen werden.
+    </div>
+  </div>
+
+  <!-- Social Media Statistik -->
+  <div class="card">
+    <div class="card-title" style="color:var(--accent-ra);">📊 Social Media & Radikalisierung – Zahlen</div>
+    <div class="card-body">
+      <p>Laut einer Studie des Bundesamts für Verfassungsschutz und der Bundeszentrale für politische Bildung (2023) nutzen extremistische Gruppen soziale Medien gezielt zur Rekrutierung.</p>
+    </div>
+
+    <!-- Balkendiagramm: Plattformen -->
+    <div class="diagram-wrap" style="margin-top:14px;">
+      <div style="font-size:12px;font-weight:700;color:var(--text-light);margin-bottom:10px;">
+        Hauptplattformen für extremistische Radikalisierung in Deutschland (BfV 2023)
+      </div>
+      <div class="bar-chart">
+        <div class="bar-row">
+          <div class="bar-label">Telegram</div>
+          <div class="bar-outer"><div class="bar-inner" style="width:95%;background:var(--accent-ra);"><span class="bar-value">Sehr hoch</span></div></div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">TikTok</div>
+          <div class="bar-outer"><div class="bar-inner" style="width:80%;background:var(--accent-ra);"><span class="bar-value">Hoch ↑</span></div></div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">YouTube</div>
+          <div class="bar-outer"><div class="bar-inner" style="width:70%;background:var(--accent-ra);"><span class="bar-value">Hoch</span></div></div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">Instagram</div>
+          <div class="bar-outer"><div class="bar-inner" style="width:55%;background:var(--accent-ra);"><span class="bar-value">Mittel</span></div></div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">X (Twitter)</div>
+          <div class="bar-outer"><div class="bar-inner" style="width:45%;background:var(--accent-ra);"><span class="bar-value">Mittel</span></div></div>
+        </div>
+      </div>
+      <p style="font-size:12px;color:var(--text-light);margin-top:8px;">Qualitative Einschätzung nach Relevanz für Radikalisierungsprozesse · Quelle: BfV 2023, BpB 2024</p>
+    </div>
+
+    <!-- Drei Stat-Boxen -->
+    <div class="stat-row" style="margin-top:16px;">
+      <div class="stat-box">
+        <span class="stat-number" style="color:var(--accent-ra);">90%</span>
+        <span class="stat-label">der IS-Rekrutierungen liefen über Social Media (BfV)</span>
+      </div>
+      <div class="stat-box">
+        <span class="stat-number" style="color:var(--accent-ra);">∅ 16</span>
+        <span class="stat-label">Jahre – Durchschnittsalter beim Erstkontakt mit extremistischen Inhalten online</span>
+      </div>
+      <div class="stat-box">
+        <span class="stat-number" style="color:var(--accent-ra);">6 Wo.</span>
+        <span class="stat-label">können genügen, um in eine extremistische Echokammer gezogen zu werden</span>
+      </div>
+    </div>
+
+    <!-- Wie Algorithmen wirken -->
+    <div style="margin-top:16px;">
+      <div style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:10px;">Wie Algorithmen Radikalisierung fördern</div>
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <div style="display:flex;gap:10px;align-items:flex-start;padding:10px;background:var(--bg);border-radius:8px;border:1px solid var(--border);">
+          <span style="font-size:18px;flex-shrink:0;">🔄</span>
+          <div><div style="font-size:13px;font-weight:600;margin-bottom:2px;">Empfehlungsschleifen</div><div style="font-size:13px;line-height:1.55;">Algorithmen zeigen immer extremere Inhalte, wenn Nutzer auf radikale Videos klicken – weil Empörung die Verweildauer erhöht.</div></div>
+        </div>
+        <div style="display:flex;gap:10px;align-items:flex-start;padding:10px;background:var(--bg);border-radius:8px;border:1px solid var(--border);">
+          <span style="font-size:18px;flex-shrink:0;">🫧</span>
+          <div><div style="font-size:13px;font-weight:600;margin-bottom:2px;">Echokammern</div><div style="font-size:13px;line-height:1.55;">Nutzer sehen nur noch Meinungen, die ihr Weltbild bestätigen. Gegenpositionen verschwinden aus dem Feed.</div></div>
+        </div>
+        <div style="display:flex;gap:10px;align-items:flex-start;padding:10px;background:var(--bg);border-radius:8px;border:1px solid var(--border);">
+          <span style="font-size:18px;flex-shrink:0;">🔒</span>
+          <div><div style="font-size:13px;font-weight:600;margin-bottom:2px;">Verschlüsselte Gruppen</div><div style="font-size:13px;line-height:1.55;">Telegram-Gruppen mit bis zu 200.000 Mitgliedern verbreiten Propaganda ohne staatliche Kontrolle.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Info-Box: Radikal vs. Extrem -->
+  <div class="card" style="border-left:4px solid var(--accent-ra);">
+    <div class="card-title" style="color:var(--accent-ra);">💡 Info: Radikal vs. Extrem – was ist der Unterschied?</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:8px;">
+      <div style="background:var(--accent-ra-light);border-radius:8px;padding:14px;border:1px solid #a8d4aa;">
+        <div style="font-size:12px;font-weight:700;color:var(--accent-ra);margin-bottom:8px;text-transform:uppercase;letter-spacing:0.5px;">Radikal</div>
+        <div style="font-size:14px;line-height:1.65;">Wer radikal denkt, will <strong>tiefgreifende Veränderungen</strong> im System – aber <em>innerhalb</em> der Demokratie. Radikale nutzen legale Mittel: Proteste, Parteien, Initiativen.<br><br>
+        <span style="font-size:13px;color:var(--text-light);">Beispiele: Klimaaktivisten, die extreme Maßnahmen fordern – aber demokratisch agieren.</span></div>
+      </div>
+      <div style="background:#fdf2f1;border-radius:8px;padding:14px;border:1px solid #f5c0bb;">
+        <div style="font-size:12px;font-weight:700;color:var(--accent-re);margin-bottom:8px;text-transform:uppercase;letter-spacing:0.5px;">Extrem</div>
+        <div style="font-size:14px;line-height:1.65;">Wer extrem denkt, will das demokratische System <strong>abschaffen oder überwinden</strong> – notfalls mit Gewalt. Extremisten lehnen die fdGO grundsätzlich ab.<br><br>
+        <span style="font-size:13px;color:var(--text-light);">Beispiele: NSU, IS-Anhänger, gewaltbereite Autonome.</span></div>
+      </div>
+    </div>
+    <div class="highlight" style="background:#f8f8f8;border-left:4px solid var(--border);margin-top:12px;">
+      <strong>Merksatz:</strong> Radikale verändern das System von innen – Extremisten wollen es zerstören. Der Übergang ist fließend und genau das macht Radikalisierung so gefährlich.
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title" style="color:var(--accent-ra);">✏️ Eure Aufgaben</div>
+    <div class="tasks">
+      <div class="task">
+        <div class="task-num" style="background:var(--accent-ra);">1</div>
+        <div class="task-content">
+          <div class="task-label" style="color:var(--accent-ra);">Erschließen</div>
+          <div class="task-text">Erklärt die vier Phasen des Modells in eigenen Worten. Bei welcher Phase könnte Prävention am wirksamsten eingreifen – und warum?</div>
+        </div>
+      </div>
+      <div class="task">
+        <div class="task-num" style="background:var(--accent-ra);">2</div>
+        <div class="task-content">
+          <div class="task-label" style="color:var(--accent-ra);">Analysieren</div>
+          <div class="task-text">Gebt je zwei konkrete Beispiele für Push- und Pull-Faktoren. Welche gesellschaftlichen Bedingungen begünstigen Radikalisierung besonders?</div>
+        </div>
+      </div>
+      <div class="task">
+        <div class="task-num" style="background:var(--accent-ra);">3</div>
+        <div class="task-content">
+          <div class="task-label" style="color:var(--accent-ra);">Urteilen</div>
+          <div class="task-text">„Wer sich radikalisiert, trägt die alleinige Verantwortung dafür." Bewertet diese These – mit Bezug auf Push- und Pull-Faktoren. Was bedeutet das für den Staat?</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="plakat-box" style="border-color:var(--accent-ra);background:var(--accent-ra-light);">
+    <div style="font-size:13px;font-weight:700;color:var(--accent-ra);margin-bottom:6px;">🖊 Euer Plakat – vier Pflichtfelder</div>
+    <div class="plakat-grid" style="color:var(--accent-ra);">
+      <div class="plakat-cell">Die 4 Phasen<span>als Schaubild oder Pfeil-Grafik</span></div>
+      <div class="plakat-cell">Push vs. Pull<span>mit eigenen Beispielen</span></div>
+      <div class="plakat-cell">Rolle von Social Media<span>konkret: TikTok, Telegram</span></div>
+      <div class="plakat-cell">Unser Urteil<span>Wer trägt Verantwortung?</span></div>
+    </div>
+  </div>
+  <div class="footer-info">SoWi EF · Quellen: Wiktorowicz-Modell · BpB · Verfassungsschutzbericht 2023</div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     PANEL E – STREITBARE DEMOKRATIE
+══════════════════════════════════════════ -->
+<div class="panel" id="panel-E">
+  <div class="group-badge" style="background:var(--accent-st-light);color:var(--accent-st);border:1px solid #c8a8e8;">
+    🟣 Gruppe E · Streitbare Demokratie
+  </div>
+  <div class="section-title">Wie wehrt sich die Demokratie?</div>
+  <div class="section-sub">Das Konzept der streitbaren Demokratie und ihre Instrumente</div>
+
+  <div class="highlight" style="background:var(--accent-st-light);border-left:4px solid var(--accent-st);">
+    <strong>Kerngedanke:</strong> Das Grundgesetz gibt der Demokratie das Recht, sich gegen ihre Feinde zu wehren – auch wenn diese demokratische Freiheiten nutzen, um die Demokratie zu zerstören.
+  </div>
+
+  <div class="card">
+    <div class="card-title" style="color:var(--accent-st);">📖 Fünf Instrumente der streitbaren Demokratie</div>
+    <div class="instrument">
+      <div class="instrument-art" style="color:var(--accent-st);">Art. 21 GG</div>
+      <div class="instrument-text"><strong>Parteiverbot</strong> durch das Bundesverfassungsgericht. Bisher: KPD 1956, SRP 1952 verboten. NPD-Verbotsverfahren 2017 scheiterte. <strong>Neu (Art. 21 Abs. 3 GG, seit 2024):</strong> Das BVerfG kann einer Partei die staatliche Finanzierung entziehen, ohne sie zu verbieten – auch wenn sie zu klein für ein Verbot ist.</div>
+    </div>
+    <div class="instrument">
+      <div class="instrument-art" style="color:var(--accent-st);">Art. 18 GG</div>
+      <div class="instrument-text"><strong>Grundrechtsverwirkung</strong> für Personen, die Grundrechte gegen die fdGO missbrauchen. Noch nie angewendet – gilt als „schlafende" Norm.</div>
+    </div>
+    <div class="instrument">
+      <div class="instrument-art" style="color:var(--accent-st);">Verfassungs-schutz</div>
+      <div class="instrument-text"><strong>Nachrichtendienstliche Beobachtung</strong> extremistischer Gruppen und Personen. Sammelt Informationen – darf aber nicht verhaften.</div>
+    </div>
+    <div class="instrument">
+      <div class="instrument-art" style="color:var(--accent-st);">Prävention</div>
+      <div class="instrument-text"><strong>Beratungsstelle Radikalisierung</strong> (BAMF), <strong>EXIT-Deutschland</strong> (Aussteigerprogramm), schulische Prävention. Ziel: Radikalisierung verhindern, bevor sie entsteht.</div>
+    </div>
+    <div class="instrument">
+      <div class="instrument-art" style="color:var(--accent-st);">Strafrecht</div>
+      <div class="instrument-text"><strong>§§ 86, 86a StGB</strong>: Verbreitung verfassungswidriger Symbole (z.B. Hakenkreuz). <strong>§ 130 StGB</strong>: Volksverhetzung. Strafrechtliche Verfolgung extremistischer Handlungen.</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title" style="color:var(--accent-st);">🔍 Fallbeispiel: NPD – Von 2017 bis 2024</div>
+    <div class="card-body">
+      <p>Das Bundesverfassungsgericht stellte 2017 fest: Die NPD ist verfassungsfeindlich – sie will die fdGO abschaffen. Trotzdem wurde kein Verbot ausgesprochen.</p>
+      <p style="margin-top:10px;"><strong>Begründung:</strong> Eine Partei darf nur verboten werden, wenn von ihr eine <em>konkrete Gefahr</em> für die Demokratie ausgeht. Die NPD sei zu klein und zu bedeutungslos.</p>
+    </div>
+    <div class="highlight" style="background:#fff8e8;border-left:4px solid #e6a817;margin-top:12px;">
+      <strong>🆕 Neuerung 2024:</strong> Das BVerfG entzog der NPD (inzwischen umbenannt in „Die Heimat") die staatliche Parteienfinanzierung für sechs Jahre. Grundlage: Art. 21 Abs. 3 GG – ein neues Instrument, das 2017 noch nicht existierte. Die Partei verliert damit rund 1 Million Euro jährlich. Das ist kein Verbot – aber ein wirksames Mittel, das zwischen „nichts tun" und „Partei auflösen" liegt.
+    </div>
+    <div class="highlight" style="background:var(--accent-st-light);border-left:4px solid var(--accent-st);margin-top:8px;">
+      <strong>Diskussion:</strong> Ist der Finanzierungsausschluss effizienter als ein Verbot? Oder ist er nur ein Kompromiss, der das eigentliche Problem nicht löst?
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title" style="color:var(--accent-st);">✏️ Eure Aufgaben</div>
+    <div class="tasks">
+      <div class="task">
+        <div class="task-num" style="background:var(--accent-st);">1</div>
+        <div class="task-content">
+          <div class="task-label" style="color:var(--accent-st);">Erschließen</div>
+          <div class="task-text">Erklärt das Konzept der „streitbaren Demokratie" in eigenen Worten. Welche fünf Instrumente stehen dem Staat zur Verfügung?</div>
+        </div>
+      </div>
+      <div class="task">
+        <div class="task-num" style="background:var(--accent-st);">2</div>
+        <div class="task-content">
+          <div class="task-label" style="color:var(--accent-st);">Analysieren</div>
+          <div class="task-text">Das NPD-Verbotsverfahren 2017 scheiterte – aber 2024 entzog das BVerfG der Partei die Finanzierung. Erklärt: Was ist der Unterschied zwischen beiden Entscheidungen? Welche ist eurer Meinung nach wirksamer?</div>
+          <div class="task-hint">Denkt an: Effizienz (Wirkung auf die Partei) vs. Legitimität (Vereinbarkeit mit dem Demokratieprinzip)</div>
+        </div>
+      </div>
+      <div class="task">
+        <div class="task-num" style="background:var(--accent-st);">3</div>
+        <div class="task-content">
+          <div class="task-label" style="color:var(--accent-st);">Urteilen – Effizienz & Legitimität</div>
+          <div class="task-text">Bewertet die fünf Instrumente: Welche sind effizient? Welche sind besonders legitim? Kann ein Instrument effizient, aber nicht legitim sein?</div>
+          <div class="task-hint">Effizienz = Wirkt es gegen Extremismus? · Legitimität = Ist es mit demokratischen Grundsätzen vereinbar?</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="plakat-box" style="border-color:var(--accent-st);background:var(--accent-st-light);">
+    <div style="font-size:13px;font-weight:700;color:var(--accent-st);margin-bottom:6px;">🖊 Euer Plakat – vier Pflichtfelder</div>
+    <div class="plakat-grid" style="color:var(--accent-st);">
+      <div class="plakat-cell">Was ist streitbare Demokratie?<span>Kerngedanke in eigenen Worten</span></div>
+      <div class="plakat-cell">Die 5 Instrumente<span>mit kurzem Beispiel je Instrument</span></div>
+      <div class="plakat-cell">NPD-Verfahren 2017<span>Warum scheiterte es?</span></div>
+      <div class="plakat-cell">Unser Urteil<span>Effizienz vs. Legitimität</span></div>
+    </div>
+  </div>
+  <div class="footer-info">SoWi EF · Quellen: GG Art. 18, 21 · BVerfG 2017 · BpB · Verfassungsschutzbericht 2023</div>
+</div>
+
+<script>
+function showPanel(group, btn) {
+  // Hide all panels
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+
+  // Show selected
+  const panel = document.getElementById('panel-' + group);
+  if (panel) panel.classList.add('active');
+  if (btn) btn.classList.add('active');
+
+  // Scroll tab into view
+  btn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+}
+</script>
+</body>
+</html>
